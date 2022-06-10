@@ -29,7 +29,7 @@
     "@babel/preset-env": "^7.12.13",
     "@babel/preset-typescript": "^7.12.13",
     "@graphprotocol/graph-cli": "^0.25.0",
-    "@graphprotocol/graph-ts": "^0.24.1",
+    "@graphprotocol/graph-ts": "^0.25.0",
     "@types/jest": "^26.0.20",
     "@types/node": "^16.4.1",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
@@ -53,9 +53,12 @@
   },
   "dependencies": {
     "@assemblyscript/loader": "^0.17.5",
+    "axios": "^0.27.2",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "global": "^4.4.0",
+    "json-to-graphql-query": "^2.2.4",
+    "lodash": "^4.17.21",
     "node-fetch": "^2.6.1"
   },
   "jest": {

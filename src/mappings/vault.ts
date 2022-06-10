@@ -90,12 +90,14 @@ function handlePoolJoined(event: PoolBalanceChanged): void {
     log.warning('Pool not found in handlePoolJoined: {} {}', [poolId, transactionHash.toHexString()]);
     return;
   }
+
   let tokenAddresses = pool.tokensList;
 
   let joinId = transactionHash.toHexString().concat(logIndex.toString());
   let join = new JoinExit(joinId);
   join.sender = event.params.liquidityProvider;
-  let joinAmounts = new Array<BigDecimal>(amounts.length);
+  // let joinAmounts = new Array<BigDecimal>(amounts.length);
+  let joinAmounts = new Array<BigDecimal>(tokenAddresses.length);
   for (let i: i32 = 0; i < tokenAddresses.length; i++) {
     let tokenAddress: Address = Address.fromString(tokenAddresses[i].toHexString());
     let poolToken = loadPoolToken(poolId, tokenAddress);
@@ -103,8 +105,10 @@ function handlePoolJoined(event: PoolBalanceChanged): void {
       throw new Error('poolToken not found');
     }
     let joinAmount = scaleDown(amounts[i], poolToken.decimals);
+    log.debug('joinAmount - {}', [joinAmount.toString()]);
     joinAmounts[i] = joinAmount;
   }
+
   join.type = 'Join';
   join.amounts = joinAmounts;
   join.pool = event.params.poolId.toHexString();
@@ -321,13 +325,33 @@ export function handleSwapEvent(event: SwapEvent): void {
 
   let poolTokenIn = loadPoolToken(poolId.toHexString(), tokenInAddress);
   let poolTokenOut = loadPoolToken(poolId.toHexString(), tokenOutAddress);
-  if (poolTokenIn == null || poolTokenOut == null) {
-    log.warning('PoolToken not found in handleSwapEvent: (tokenIn: {}), (tokenOut: {})', [
+  if (poolTokenIn == null && poolTokenOut == null) {
+    log.warning('poolId - {}, PoolTokenIn & PoolTokenOut not found in handleSwapEvent: (tokenIn: {}), (tokenOut: {})', [
+      poolId.toHexString(),
+      tokenInAddress.toHexString(),
+      tokenOutAddress.toHexString(),
+    ]);
+    return;
+  } else if (poolTokenOut == null) {
+    log.warning('PoolTokenOut not found in handleSwapEvent: (tokenIn: {}), (tokenOut: {})', [
+      tokenInAddress.toHexString(),
+      tokenOutAddress.toHexString(),
+    ]);
+    return;
+  } else if (poolTokenIn == null) {
+    log.warning('PoolTokenIn not found in handleSwapEvent: (tokenIn: {}), (tokenOut: {})', [
       tokenInAddress.toHexString(),
       tokenOutAddress.toHexString(),
     ]);
     return;
   }
+  // if (poolTokenIn == null || poolTokenOut == null) {
+  //   log.warning('PoolToken not found in handleSwapEvent: (tokenIn: {}), (tokenOut: {})', [
+  //     tokenInAddress.toHexString(),
+  //     tokenOutAddress.toHexString(),
+  //   ]);
+  //   return;
+  // }
 
   let tokenAmountIn: BigDecimal = scaleDown(event.params.amountIn, poolTokenIn.decimals);
   let tokenAmountOut: BigDecimal = scaleDown(event.params.amountOut, poolTokenOut.decimals);
