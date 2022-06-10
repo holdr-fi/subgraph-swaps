@@ -6,18 +6,24 @@
     - Create by linking Github account
     - Authenticate your local to deploy to your GraphQL account with `graph auth <PROVIDED_AUTH_KEY>`
 
+
 **Steps**
 
 Change Vault and InvestmentPoolFactory addresses in the following files
 - networks/yaml
     - Need to fill in an address for 'WeightedPoolFactory' and 'WeightedPool2TokenFactory' fields, to support 'InvestmentPoolFactory'. But looks like these addresses don't need to correspond to an actual deployed WeightedPoolFactory or WeightedPool2TokenFactory.
+    
 - src/mappings/helpers/constants.ts - `vaultAddressByNetwork` mapping
 
 `yarn codegen` => Generates required development files including types for every Contract and object (the .ts files in src/mappings are not Typescript, but AssemblyScript which is more type-strict than Typescript. AssemblyScript is then compiled to Web Assembly in the build).
+
 `yarn build` => Builds subgraph into `./dist` folder
+
 `graph deploy --product hosted-service <REPO_NAME/GRAPH_NAME> subgraph.<NETWORK>.yaml` => Build and deploy subgraph to specified Hosted Service project
 
+
 **Debugging**
+
 
 Good old console.log is not compatible with AssemblyScript files. Use `log` API - https://thegraph.com/docs/en/developer/assemblyscript-api/#logging-api
 
