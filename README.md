@@ -14,7 +14,8 @@ Change Vault and InvestmentPoolFactory addresses in the following files
 - networks/yaml
     - Need to fill in an address for 'WeightedPoolFactory' and 'WeightedPool2TokenFactory' fields, to support 'InvestmentPoolFactory'. But looks like these addresses don't need to correspond to an actual deployed WeightedPoolFactory or WeightedPool2TokenFactory.
 
-- src/mappings/helpers/constants.ts - `vaultAddressByNetwork` mapping
+- src/mappings/helpers/constants.ts - Add new network to `AddressByNetwork` class, add network address for `vaultAddressByNetwork` and `...AddressByNetwork` classes, and add network to `forNetwork` function
+- Add token addresses to `src/mappings/helpers/constants.ts`. Or else strange '0 totalLiquidity' bug.
 
 `yarn codegen` => Generates required development files including types for every Contract and object (the .ts files in src/mappings are not Typescript, but AssemblyScript which is more type-strict than Typescript. AssemblyScript is then compiled to Web Assembly in the build).
 
@@ -47,6 +48,19 @@ Documentation mentions forking your deployed subgraph, to a local Graph node, an
     userAddress {
       id
     }
+  }
+}
+```
+
+```
+{
+  balancers(first: 5) {
+    id
+    poolCount
+    totalLiquidity
+  }
+  pool(id: "0x8b021079eed6eea7a495369f70374272dc1a8311000100000000000000000013") {
+    totalLiquidity
   }
 }
 ```

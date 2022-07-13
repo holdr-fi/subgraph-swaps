@@ -260,3 +260,31 @@ polygonGrafted:
   ERC4626LinearPoolFactory:
     address: "0x6637dA12881f66dC7E42b8879B0a79faF43C9be2"
     startBlock: 26746067
+aurora_testnet:
+  network: aurora-testnet
+  Vault:
+    address: "0x39526464ac81f75009a8c1e425f2340e7f1ddfd4"
+    startBlock: 92387786
+  WeightedPoolFactory:
+    address: "0xdec672e1e14492eae64387e56acf07166c0b5f96"
+    startBlock: 92387786
+  WeightedPool2TokenFactory:
+    address: "0x81a06d26d42c2d24e8ddbaf99ebbcbe3aab53190"
+    startBlock: 92387786
+  InvestmentPoolFactory:
+    address: "0x2f54d849744cf55bf5c7a2c4898da45ed1a757af"
+    startBlock: 92387786
+aurora:
+  network: aurora
+  Vault:
+    address: "0x1Bee13139Ef9A5E1301f83Ca90d09C5289Ce3FC2"
+    startBlock: 69699385
+  WeightedPoolFactory:
+    address: "0xEF7dd30092D812068047109e55DeF88b74522187"
+    startBlock: 69699385
+  WeightedPool2TokenFactory:
+    address: "0x3Ef2B76449828dF079e29df5Bb7Eb51A39dAf46C"
+    startBlock: 69699385
+  InvestmentPoolFactory:
+    address: "0xAD47548be7e2e085207062aD03f396bf599F7478"
+    startBlock: 69699385
