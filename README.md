@@ -11,7 +11,7 @@
 **Steps**
 
 Change Vault and InvestmentPoolFactory addresses in the following files
-- networks/yaml
+- `./networks/yaml`
     - Need to fill in an address for 'WeightedPoolFactory' and 'WeightedPool2TokenFactory' fields, to support 'InvestmentPoolFactory'. But looks like these addresses don't need to correspond to an actual deployed WeightedPoolFactory or WeightedPool2TokenFactory.
 
 - src/mappings/helpers/constants.ts - Add new network to `AddressByNetwork` class, add network address for `vaultAddressByNetwork` and `...AddressByNetwork` classes, and add network to `forNetwork` function

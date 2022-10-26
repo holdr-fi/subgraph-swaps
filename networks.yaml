@@ -147,37 +147,6 @@ ropsten:
   # ConvergentPoolFactory:
   #   address: ""
   #   startBlock: 0
-goerli:
-  network: goerli
-  Vault:
-    address: "0xBA12222222228d8Ba445958a75a0704d566BF2C8"
-    startBlock: 4648000
-  WeightedPoolFactory:
-    address: "0x8E9aa87E45e92bad84D5F8DD1bff34Fb92637dE9"
-    startBlock: 4648000
-  WeightedPool2TokenFactory:
-    address: "0xA5bf2ddF098bb0Ef6d120C98217dD6B141c74EE0"
-    startBlock: 4716924
-  # StablePoolFactory:
-  #   address: ""
-  #   startBlock: 0
-  # MetaStablePoolFactory:
-  #   address: ""
-  #   startBlock: 0
-  # LiquidityBootstrappingPoolFactory:
-  #   address: ""
-  #   startBlock: 0
-  ConvergentPoolFactory:
-    address: "0x0766B218517d9dC198155f0dC3485270cF788aF7"
-    startBlock: 4752660
-    address: "0x94470C12fc192e071F12Fec1152861608CE01562"
-    startBlock: 6993887
-  AaveLinearPoolV2Factory:
-    address: "0xC128468b7Ce63eA702C1f104D55A2566b13D3ABD"
-    startBlock: 7421371
-  GyroCEMMPoolFactory:
-    address: "0x9E182eC776aAa2E0169f5FEc08fC22a7f059AaDC"
-    startBlock: 7546831
 polygon:
   network: matic
   graft:
@@ -350,3 +319,11 @@ aurora:
   InvestmentPoolFactory:
     address: "0xAD47548be7e2e085207062aD03f396bf599F7478"
     startBlock: 69699385
+mumbai:
+  network: mumbai
+  Vault:
+    address: "0x7e5D79D67A1dAc16E8024B99c4B8A8Ec37C5eA2B"
+    startBlock: 28565848
+  WeightedPoolV2Factory:
+    address: "0x6eEc5D0A3110adb7521C5Ea11A1057CAc90F600F"
+    startBlock: 28565952

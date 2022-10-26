@@ -32,6 +32,7 @@ class AddressByNetwork {
   public dev: string;
   public aurora_testnet: string;
   public aurora: string;
+  public mumbai: string;
 }
 
 let network: string = dataSource.network();
@@ -44,6 +45,7 @@ let vaultAddressByNetwork: AddressByNetwork = {
   dev: '0xa0B05b20e511B1612E908dFCeE0E407E22B76028',
   aurora_testnet: '0x39526464ac81f75009a8c1e425f2340e7f1ddfd4',
   aurora: '0x1Bee13139Ef9A5E1301f83Ca90d09C5289Ce3FC2',
+  mumbai: '0x7e5D79D67A1dAc16E8024B99c4B8A8Ec37C5eA2B'
 };
 
 function forNetwork(addressByNetwork: AddressByNetwork, network: string): Address {
@@ -59,6 +61,8 @@ function forNetwork(addressByNetwork: AddressByNetwork, network: string): Addres
     return Address.fromString(addressByNetwork.aurora_testnet);
   } else if (network == 'aurora') {
     return Address.fromString(addressByNetwork.aurora);
+  } else if (network == 'mumbai') {
+    return Address.fromString(addressByNetwork.mumbai);
   } else {
     return Address.fromString(addressByNetwork.dev);
   }
