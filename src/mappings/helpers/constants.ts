@@ -44,8 +44,8 @@ let vaultAddressByNetwork: AddressByNetwork = {
   arbitrum: '0xBA12222222228d8Ba445958a75a0704d566BF2C8',
   dev: '0xa0B05b20e511B1612E908dFCeE0E407E22B76028',
   aurora_testnet: '0x39526464ac81f75009a8c1e425f2340e7f1ddfd4',
-  aurora: '0x1Bee13139Ef9A5E1301f83Ca90d09C5289Ce3FC2',
-  mumbai: '0x7e5D79D67A1dAc16E8024B99c4B8A8Ec37C5eA2B'
+  aurora: '0x364d44dFc31b3d7b607797B514348d57Ad0D784E',
+  mumbai: '0x7e5D79D67A1dAc16E8024B99c4B8A8Ec37C5eA2B',
 };
 
 function forNetwork(addressByNetwork: AddressByNetwork, network: string): Address {

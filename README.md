@@ -14,8 +14,7 @@ Change Vault and InvestmentPoolFactory addresses in the following files
 - `./networks/yaml`
     - Need to fill in an address for 'WeightedPoolFactory' and 'WeightedPool2TokenFactory' fields, to support 'InvestmentPoolFactory'. But looks like these addresses don't need to correspond to an actual deployed WeightedPoolFactory or WeightedPool2TokenFactory.
 
-- src/mappings/helpers/constants.ts - Add new network to `AddressByNetwork` class, add network address for `vaultAddressByNetwork` and `...AddressByNetwork` classes, and add network to `forNetwork` function
-- Add token addresses to `src/mappings/helpers/constants.ts`. Or else strange '0 totalLiquidity' bug.
+- `src/mappings/helpers/constants.ts` - Add new network to `AddressByNetwork` class, add network address for `vaultAddressByNetwork` and `...AddressByNetwork` classes, and add network to `forNetwork` function
 
 `yarn codegen` => Generates required development files including types for every Contract and object (the .ts files in src/mappings are not Typescript, but AssemblyScript which is more type-strict than Typescript. AssemblyScript is then compiled to Web Assembly in the build).
 

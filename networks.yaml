@@ -307,22 +307,34 @@ aurora_testnet:
     startBlock: 92387786
 aurora:
   network: aurora
+  # Vault:
+  #   address: "0x1Bee13139Ef9A5E1301f83Ca90d09C5289Ce3FC2"
+  #   startBlock: 69699385
+  # WeightedPoolFactory:
+  #   address: "0xEF7dd30092D812068047109e55DeF88b74522187"
+  #   startBlock: 69699385
+  # WeightedPool2TokenFactory:
+  #   address: "0x3Ef2B76449828dF079e29df5Bb7Eb51A39dAf46C"
+  #   startBlock: 69699385
+  # InvestmentPoolFactory:
+  #   address: "0xAD47548be7e2e085207062aD03f396bf599F7478"
+  #   startBlock: 69699385
   Vault:
-    address: "0x1Bee13139Ef9A5E1301f83Ca90d09C5289Ce3FC2"
-    startBlock: 69699385
-  WeightedPoolFactory:
-    address: "0xEF7dd30092D812068047109e55DeF88b74522187"
-    startBlock: 69699385
-  WeightedPool2TokenFactory:
-    address: "0x3Ef2B76449828dF079e29df5Bb7Eb51A39dAf46C"
-    startBlock: 69699385
-  InvestmentPoolFactory:
-    address: "0xAD47548be7e2e085207062aD03f396bf599F7478"
-    startBlock: 69699385
+    address: "0x364d44dFc31b3d7b607797B514348d57Ad0D784E"
+    startBlock: 78113000
+  WeightedPoolV2Factory:
+    address: "0xDD1591D7BdF0E3ddEa4b4377cf03373700BED38e"
+    startBlock: 78113000
+  ComposableStablePoolFactory:
+    address: "0xB2f941B85791e47FAa6391Cdef36A3BBaD19b73E"
+    startBlock: 78113000
+  TempLiquidityBootstrappingPoolFactory:
+    address: "0x1001e599ff9079717E176f224de7f1a27eACD3C2"
+    startBlock: 78113000
 mumbai:
   network: mumbai
   Vault:
-    address: "0x7e5D79D67A1dAc16E8024B99c4B8A8Ec37C5eA2B"
+    address: "0x364d44dFc31b3d7b607797B514348d57Ad0D784E"
     startBlock: 28565848
   WeightedPoolV2Factory:
     address: "0x6eEc5D0A3110adb7521C5Ea11A1057CAc90F600F"
