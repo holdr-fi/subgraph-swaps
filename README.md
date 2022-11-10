@@ -1,4 +1,4 @@
-# Solace Fork instructions
+# Holdr instructions
 
 **Prerequisites**
 - graph-cli => `sudo yarn global add @graphprotocol/graph-cli`
