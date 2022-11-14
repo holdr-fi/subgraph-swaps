@@ -339,3 +339,6 @@ mumbai:
   WeightedPoolV2Factory:
     address: "0x6eEc5D0A3110adb7521C5Ea11A1057CAc90F600F"
     startBlock: 28565952
+  TempLiquidityBootstrappingPoolFactory:
+    address: "0x7695CEa20Aa5268dD319CA761AA686F7eE71B018"
+    startBlock: 28565952
