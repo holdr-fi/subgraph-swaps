@@ -14,6 +14,10 @@ const assets: Assets = {
     Address.fromString('0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'), // USDC
     Address.fromString('0x6B175474E89094C44Da98b954EedeAC495271d0F'), // DAI
     Address.fromString('0xdAC17F958D2ee523a2206206994597C13D831ec7'), // USDT
+    Address.fromString('0xb12bfca5a55806aaf64e99521918a4bf0fc40802'), // Aurora USDC.e
+    Address.fromString('0x4988a896b1227218e4a686fde5eabdcabd91571f'), // Aurora USDT.e
+    Address.fromString('0xda2585430fef327ad8ee44af8f1f989a2a91a3d2'), // Aurora FRAX
+    Address.fromString('0xe3520349f477a5f6eb06107066048508498a291b'), // Aurora DAI
   ],
   pricingAssets: [
     Address.fromString('0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'), // WETH
@@ -29,6 +33,12 @@ const assets: Assets = {
     Address.fromString('0xae37D54Ae477268B9997d4161B96b8200755935c'), // bb-a-DAI-V2
     Address.fromString('0x82698aeCc9E28e9Bb27608Bd52cF57f704BD1B83'), // bb-a-USDC-V2
     Address.fromString('0x2F4eb100552ef93840d5aDC30560E5513DFfFACb'), // bb-a-USDT-V2
+    // AURORA ASSETS
+    Address.fromString('0xc9bdeed33cd01541e1eed10f90519d2c06fe3feb'), // Aurora WETH
+    Address.fromString('0xf4eb217ba2454613b15dbdea6e5f22276410e89e'), // Aurora WBTC
+    Address.fromString('0x1aaee8F00D02fcdb10cF1F0caB651dC83318c7AA'), // Aurora HLDR
+    Address.fromString('0x8bec47865ade3b172a928df8f990bc7f2a3b9f79'), // Aurora AURORA
+    Address.fromString('0x190185164382D388ef829a3Ad67998Ab5792EeA3'), // Aurora 80HLDR-20WNEAR
   ],
 };
 

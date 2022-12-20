@@ -1,0 +1,44 @@
+{
+  "stableAssets": [
+    {
+      "address": "0xb12bfca5a55806aaf64e99521918a4bf0fc40802",
+      "symbol": "USDC"
+    },
+    {
+      "address": "0x4988a896b1227218e4a686fde5eabdcabd91571f",
+      "symbol": "USDT"
+    },
+    {
+      "address": "0xda2585430fef327ad8ee44af8f1f989a2a91a3d2",
+      "symbol": "FRAX"
+    },
+    {
+      "address": "0xe3520349f477a5f6eb06107066048508498a291b",
+      "symbol": "DAI"
+    }
+  ],
+  "pricingAssets": [
+    {
+      "address": "0xc9bdeed33cd01541e1eed10f90519d2c06fe3feb", 
+      "symbol": "WETH"
+    },
+    {
+      "address": "0xf4eb217ba2454613b15dbdea6e5f22276410e89e", 
+      "symbol": "WBTC"
+    },
+    {
+      "address": "0x1aaee8F00D02fcdb10cF1F0caB651dC83318c7AA", 
+      "symbol": "HLDR"
+    },
+    {
+      "address": "0x8bec47865ade3b172a928df8f990bc7f2a3b9f79", 
+      "symbol": "AURORA"
+    },
+    {
+      "address": "0x190185164382D388ef829a3Ad67998Ab5792EeA3", 
+      "symbol": "80HLDR-20WNEAR"
+    }
+  ]
+}
+
+
