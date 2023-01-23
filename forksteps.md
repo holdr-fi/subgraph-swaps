@@ -19,3 +19,38 @@ The .ts files in `src/mappings` are not Typescript files, but AssemblyScript whi
 6. `graph deploy --product hosted-service <REPO_NAME/GRAPH_NAME> subgraph.<NETWORK>.yaml` => Build and deploy subgraph to specified Hosted Service project
 
 </br>
+
+## Other CLI commands
+
+### Start local graph node
+
+Start local PostgresQL instance
+
+```
+initdb -D .postgres --locale=C --encoding=UTF8 && pg_ctl -D .postgres -l logfile start && createdb graph-node
+```
+
+`git clone https://github.com/graphprotocol/graph-node.git` then into graph-node folder run
+
+```
+cargo run -p graph-node --release -- \
+  --postgres-url postgresql://jefferson:jefferson@localhost:5432/graph-node \
+  --ethereum-rpc aurora:https://mainnet.aurora.dev \
+  --ipfs 127.0.0.1:5001 \
+  --fork-base https://api.thegraph.com/subgraphs/id/
+```
+
+Shut down graph node
+
+```
+pg_ctl stop -D .postgres && rm -rf .postgres
+ps aux | grep postgrep
+lsof -i :5432
+```
+
+Run subgraph on local graph node fork
+```
+graph create --node http://localhost:8020 subgraph-swap
+
+graph deploy subgraph-swap --debug-fork QmUGXfmzbYFXdPawrifQutaKdFPjyCyBebA974rYYo8eoD --ipfs http://localhost:5001 --node http://localhost:8020 -l 0.0.1 subgraph.aurora.yaml
+```

@@ -19,24 +19,12 @@
   ],
   "pricingAssets": [
     {
-      "address": "0xc9bdeed33cd01541e1eed10f90519d2c06fe3feb", 
-      "symbol": "WETH"
+      "address": "0x6bb0c4d909a84d118b5e6c4b17117e79e621ae94",
+      "symbol": "wNEAR"
     },
     {
-      "address": "0xf4eb217ba2454613b15dbdea6e5f22276410e89e", 
-      "symbol": "WBTC"
-    },
-    {
-      "address": "0x1aaee8F00D02fcdb10cF1F0caB651dC83318c7AA", 
-      "symbol": "HLDR"
-    },
-    {
-      "address": "0x8bec47865ade3b172a928df8f990bc7f2a3b9f79", 
+      "address": "0x8bec47865ade3b172a928df8f990bc7f2a3b9f79",
       "symbol": "AURORA"
-    },
-    {
-      "address": "0x190185164382D388ef829a3Ad67998Ab5792EeA3", 
-      "symbol": "80HLDR-20WNEAR"
     }
   ]
 }

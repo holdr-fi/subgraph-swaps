@@ -1,4 +1,4 @@
-import { Address, Bytes, BigInt, BigDecimal } from '@graphprotocol/graph-ts';
+import { Address, Bytes, BigInt, BigDecimal, log } from '@graphprotocol/graph-ts';
 import { Pool, TokenPrice, Balancer, PoolHistoricalLiquidity, LatestPrice } from '../types/schema';
 import { ZERO_BD, PRICING_ASSETS, USD_STABLE_ASSETS, ONE_BD, ZERO_ADDRESS } from './helpers/constants';
 import { hasVirtualSupply, PoolType } from './helpers/pools';
@@ -179,22 +179,82 @@ export function swapValueInUSD(
   if (isUSDStable(tokenOutAddress)) {
     // if one of the tokens is a stable, it takes precedence
     swapValueUSD = valueInUSD(tokenAmountOut, tokenOutAddress);
+
+    log.warning(
+      'Path 1: tokenInAddress: {}, tokenAmountIn: {}, tokenOutAddress: {}, tokenAmountOut: {}, swapValueUSD: {}',
+      [
+        tokenInAddress.toHexString(),
+        tokenAmountIn.toString(),
+        tokenOutAddress.toHexString(),
+        tokenAmountOut.toString(),
+        swapValueUSD.toString(),
+      ]
+    );
   } else if (isUSDStable(tokenInAddress)) {
     // if one of the tokens is a stable, it takes precedence
     swapValueUSD = valueInUSD(tokenAmountIn, tokenInAddress);
-  } else if (isPricingAsset(tokenInAddress) && !isPricingAsset(tokenOutAddress)) {
-    // if only one of the tokens is a pricing asset, it takes precedence
-    swapValueUSD = valueInUSD(tokenAmountIn, tokenInAddress);
-  } else if (isPricingAsset(tokenOutAddress) && !isPricingAsset(tokenInAddress)) {
-    // if only one of the tokens is a pricing asset, it takes precedence
-    swapValueUSD = valueInUSD(tokenAmountOut, tokenOutAddress);
-  } else {
+
+    log.warning(
+      'Path 2: tokenInAddress: {}, tokenAmountIn: {}, tokenOutAddress: {}, tokenAmountOut: {}, swapValueUSD: {}',
+      [
+        tokenInAddress.toHexString(),
+        tokenAmountIn.toString(),
+        tokenOutAddress.toHexString(),
+        tokenAmountOut.toString(),
+        swapValueUSD.toString(),
+      ]
+    );
+  }
+  // else if (isPricingAsset(tokenInAddress) && !isPricingAsset(tokenOutAddress)) {
+  //   // if only one of the tokens is a pricing asset, it takes precedence
+  //   swapValueUSD = valueInUSD(tokenAmountIn, tokenInAddress);
+
+  //   log.warning(
+  //     'Path 3: tokenInAddress: {}, tokenAmountIn: {}, tokenOutAddress: {}, tokenAmountOut: {}, swapValueUSD: {}',
+  //     [
+  //       tokenInAddress.toHexString(),
+  //       tokenAmountIn.toString(),
+  //       tokenOutAddress.toHexString(),
+  //       tokenAmountOut.toString(),
+  //       swapValueUSD.toString(),
+  //     ]
+  //   );
+  // } else if (isPricingAsset(tokenOutAddress) && !isPricingAsset(tokenInAddress)) {
+  //   // if only one of the tokens is a pricing asset, it takes precedence
+  //   swapValueUSD = valueInUSD(tokenAmountOut, tokenOutAddress);
+
+  //   log.warning(
+  //     'Path 4: tokenInAddress: {}, tokenAmountIn: {}, tokenOutAddress: {}, tokenAmountOut: {}, swapValueUSD: {}',
+  //     [
+  //       tokenInAddress.toHexString(),
+  //       tokenAmountIn.toString(),
+  //       tokenOutAddress.toHexString(),
+  //       tokenAmountOut.toString(),
+  //       swapValueUSD.toString(),
+  //     ]
+  //   );
+  // }
+  else {
     // if none or both tokens are pricing assets, take the average of the known prices
     let tokenInSwapValueUSD = valueInUSD(tokenAmountIn, tokenInAddress);
     let tokenOutSwapValueUSD = valueInUSD(tokenAmountOut, tokenOutAddress);
     let divisor =
       tokenInSwapValueUSD.gt(ZERO_BD) && tokenOutSwapValueUSD.gt(ZERO_BD) ? BigDecimal.fromString('2') : ONE_BD;
     swapValueUSD = tokenInSwapValueUSD.plus(tokenOutSwapValueUSD).div(divisor);
+
+    log.warning(
+      'Path 5: tokenInAddress: {}, tokenAmountIn: {}, tokenOutAddress: {}, tokenAmountOut: {}, tokenInSwapValueUSD: {}, tokenOutSwapValueUSD: {}, divisor: {}, swapValueUSD: {}',
+      [
+        tokenInAddress.toHexString(),
+        tokenAmountIn.toString(),
+        tokenOutAddress.toHexString(),
+        tokenAmountOut.toString(),
+        tokenInSwapValueUSD.toString(),
+        tokenOutSwapValueUSD.toString(),
+        divisor.toString(),
+        swapValueUSD.toString(),
+      ]
+    );
   }
 
   return swapValueUSD;
@@ -225,6 +285,33 @@ export function updateLatestPrice(tokenPrice: TokenPrice): void {
   let token = getToken(tokenAddress);
   const pricingAssetAddress = Address.fromString(tokenPrice.pricingAsset.toHexString());
   const tokenInUSD = valueInUSD(tokenPrice.price, pricingAssetAddress);
+
+  let pricingToken = getToken(tokenAddress);
+
+  if (pricingToken.latestUSDPrice) {
+    log.warning(
+      'updateLatestPrice: token: {}, tokenPrice: {}, pricingAssetAddress: {}, pricingAssetPrice: {}, tokenInUSD: {}',
+      [
+        tokenAddress.toHexString(),
+        tokenPrice.price.toString(),
+        pricingAssetAddress.toHexString(),
+        (pricingToken.latestUSDPrice as BigDecimal).toString(),
+        tokenInUSD.toString(),
+      ]
+    );
+  } else {
+    log.warning(
+      'updateLatestPrice: token: {}, tokenPrice: {}, pricingAssetAddress: {}, pricingAssetPrice: {}, tokenInUSD: {}',
+      [
+        tokenAddress.toHexString(),
+        tokenPrice.price.toString(),
+        pricingAssetAddress.toHexString(),
+        'N/A',
+        tokenInUSD.toString(),
+      ]
+    );
+  }
+
   token.latestUSDPrice = tokenInUSD;
   token.latestPrice = latestPrice.id;
   token.save();

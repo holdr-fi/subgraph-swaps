@@ -10,3 +10,4 @@ data/postgres
 *.js
 subgraph*.yaml
 subgraph.*.yaml
+test.sh

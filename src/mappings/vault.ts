@@ -116,7 +116,6 @@ function handlePoolJoined(event: PoolBalanceChanged): void {
       throw new Error('poolToken not found');
     }
     let joinAmount = scaleDown(amounts[i], poolToken.decimals);
-    log.debug('joinAmount - {}', [joinAmount.toString()]);
     joinAmounts[i] = joinAmount;
     let tokenJoinAmountInUSD = valueInUSD(joinAmount, tokenAddress);
     valueUSD = valueUSD.plus(tokenJoinAmountInUSD);
