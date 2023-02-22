@@ -331,6 +331,9 @@ aurora:
   TempLiquidityBootstrappingPoolFactory:
     address: "0x1001e599ff9079717E176f224de7f1a27eACD3C2"
     startBlock: 78113000
+  ComposableStablePoolV3Factory:
+    address: "0x9Bf7725dc48e07788292E507af33eDB894Cf8B4e"
+    startBlock: 85643900
 mumbai:
   network: mumbai
   Vault:
