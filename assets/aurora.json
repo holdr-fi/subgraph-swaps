@@ -25,6 +25,10 @@
     {
       "address": "0x8bec47865ade3b172a928df8f990bc7f2a3b9f79",
       "symbol": "AURORA"
+    },
+    {
+      "address": "0x120908185dC7f4d4AE8B32C376484406cC16731A",
+      "symbol": "wstNEAR"
     }
   ]
 }

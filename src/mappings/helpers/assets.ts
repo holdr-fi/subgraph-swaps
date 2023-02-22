@@ -22,6 +22,8 @@ const assets: Assets = {
   pricingAssets: [
     Address.fromString('0x6bb0c4d909a84d118b5e6c4b17117e79e621ae94'), // wNEAR
     Address.fromString('0x8bec47865ade3b172a928df8f990bc7f2a3b9f79'), // AURORA
+    Address.fromString('0x09C9D464b58d96837f8d8b6f4d9fE4aD408d3A4f'), // PLY
+    Address.fromString('0x120908185dC7f4d4AE8B32C376484406cC16731A'), // WSTNEAR
     // Address.fromString('0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'), // WETH
     // Address.fromString('0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0'), // WMATIC
     // Address.fromString('0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599'), // WBTC

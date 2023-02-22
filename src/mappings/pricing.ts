@@ -290,7 +290,7 @@ export function updateLatestPrice(tokenPrice: TokenPrice): void {
 
   if (pricingToken.latestUSDPrice) {
     log.warning(
-      'updateLatestPrice: token: {}, tokenPrice: {}, pricingAssetAddress: {}, pricingAssetPrice: {}, tokenInUSD: {}',
+      'updateLatestPrice: token_to_be_updated: {}, current_token_price: {}, pricing_asset: {}, pricing_asset_current_usd_price: {}, token_new_usd_price: {}',
       [
         tokenAddress.toHexString(),
         tokenPrice.price.toString(),
@@ -301,7 +301,7 @@ export function updateLatestPrice(tokenPrice: TokenPrice): void {
     );
   } else {
     log.warning(
-      'updateLatestPrice: token: {}, tokenPrice: {}, pricingAssetAddress: {}, pricingAssetPrice: {}, tokenInUSD: {}',
+      'updateLatestPrice: token_to_be_updated: {}, current_token_price_in_terms_of_pricing_asset: {}, pricing_asset: {}, pricing_asset_current_usd_price: {}, token_new_usd_price: {}',
       [
         tokenAddress.toHexString(),
         tokenPrice.price.toString(),
