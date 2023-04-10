@@ -29,6 +29,14 @@
     {
       "address": "0x120908185dC7f4d4AE8B32C376484406cC16731A",
       "symbol": "wstNEAR"
+    },
+    {
+      "address": "0x71B61b0c931Cad9E9a3Cae116C5f48A865c0fC7B",
+      "symbol": "wMETA"
+    },
+    {
+      "address": "0xe2D4e5f10F1A9d3c08828c964980fd29971EEd15",
+      "symbol": "wNSTART"
     }
   ]
 }
